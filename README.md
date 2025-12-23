@@ -23,7 +23,7 @@ const keccak256 = sha_3(keccak_c, 512, 0b0, 0);
 // create the address deriving policy
 function _1d2f57_(_0b_:InstanceType<ReturnType<typeof _e40215_>>):string {
     const Qu = _0b_.public;
-    const QuBytes = new Uint8Array(_0b_.hexlen);
+    const QuBytes = new Uint8Array(_0b_.hashlen);
     let i;
     let x = Qu.x!;
     let y = Qu.y!;
