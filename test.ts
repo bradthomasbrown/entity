@@ -1,23 +1,7 @@
-import { sha_3, keccak_c } from "@bradthomasbrown/keccak";
-import { _e40215_ } from "./dist/entity";
 import { _6aab57_ } from "@bradthomasbrown/ecdsa/concrete";
+import { EvmEntity } from "@bradthomasbrown/entity/evm";
 
 const encoder = new TextEncoder();
-
-const keccak256 = sha_3(keccak_c, 512, 0b0, 0);
-
-function _1d2f57_(_0b_:InstanceType<ReturnType<typeof _e40215_>>):string {
-    const Qu = _0b_.public;
-    const QuBytes = new Uint8Array(_0b_.hashlen);
-    let i;
-    let x = Qu.x!;
-    let y = Qu.y!;
-    for (i = QuBytes.byteLength - 1; y > 0n; y >>= 8n, i--) QuBytes[i] = Number(y & 0xffn);
-    for (i = (QuBytes.byteLength >> 1) - 1; x > 0n; x >>= 8n, i--) QuBytes[i] = Number(x & 0xffn);
-    return `0x${keccak256(QuBytes).slice(12).toHex()}`;
-}
-
-const EvmEntity = _e40215_(_6aab57_, _1d2f57_);
 
 const secret = 67546559734169151049750073306858167224481616672714023486695923696765722947804n;
 const entity = new EvmEntity(secret);
@@ -45,3 +29,9 @@ while (randy.address.charAt(2) != "0");
 // 0x8f677b2194d708b96c6dff5544a6f8fa2b3dc435
 // ...
 // 0x0468309fb3541b294e93648002043f3f0aba0445
+
+{
+    const entity = new EvmEntity(0x062A8B9E8B4773E6AFB1B2D9CC4371E20970C98050EEB12AEA3B679C3AF9BF6Dn);
+    console.log(entity.address);
+    // 0x58e8adaa8a4c8b84655a4bbe9c347ad37fbebdc0
+}
