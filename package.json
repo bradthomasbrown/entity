@@ -13,12 +13,14 @@
         "dist/"
     ],
     "exports": {
-        ".": "./dist/entity.js"
+        ".": "./dist/entity.js",
+        "./evm": "./dist/concrete/evm.js"
     },
     "dependencies": {
         "@bradthomasbrown/ecdsa": "^2.0.1",
         "@bradthomasbrown/finite-curve": "^3.0.0",
-        "@bradthomasbrown/finite-domain": "^2.0.0"
+        "@bradthomasbrown/finite-domain": "^2.0.0",
+        "@bradthomasbrown/keccak": "^1.0.1"
     },
     "devDependencies": {
         "@types/bun": "^1.3.5"
